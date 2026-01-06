@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Advisor - Discover Your Perfect Career</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <!-- Introduction/Landing Page -->
+    <div id="intro-page" class="page active">
+        <div class="container">
+            <header>
+                <h1 class="logo">AI Career Advisor</h1>
+                <p class="tagline">Discover Your Perfect Career Path</p>
+            </header>
+            
+            <main class="intro-content">
+                <div class="intro-section">
+                    <h2>Welcome to Your Career Journey</h2>
+                    <p class="intro-text">
+                        Our AI-powered career recommendation system analyzes your interests, skills, and preferences 
+                        to suggest the perfect career paths tailored just for you. Get personalized career recommendations 
+                        with detailed explanations of why each career suits you.
+                    </p>
+                    
+                    <div class="features">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Interest-Based Matching</h3>
+                            <p>We learn about your interests and match them with suitable careers</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🤖</div>
+                            <h3>AI-Powered Analysis</h3>
+                            <p>Advanced machine learning algorithms analyze your profile</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Detailed Insights</h3>
+                            <p>Get comprehensive career descriptions and explanations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary" onclick="showLogin()">Get Started</button>
+                        <button class="btn btn-secondary" onclick="showSignup()">Create Account</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-page" class="page">
+        <div class="container">
+            <div class="auth-container">
+                <h2>Login to Your Account</h2>
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <p class="auth-link">
+                    Don't have an account? <a href="#" onclick="showSignup()">Sign up here</a>
+                </p>
+                <p class="auth-link">
+                    <a href="#" onclick="showIntro()">Back to Home</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Page -->
+    <div id="signup-page" class="page">
+        <div class="container">
+            <div class="auth-container">
+                <h2>Create Your Account</h2>
+                <form id="signup-form" onsubmit="handleSignup(event)">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" name="password" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+                </form>
+                <p class="auth-link">
+                    Already have an account? <a href="#" onclick="showLogin()">Login here</a>
+                </p>
+                <p class="auth-link">
+                    <a href="#" onclick="showIntro()">Back to Home</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard/Interest Collection Page -->
+    <div id="dashboard-page" class="page">
+        <div class="container">
+            <header class="dashboard-header">
+                <h1>Welcome, <span id="user-name"></span>!</h1>
+                <button class="btn btn-secondary" onclick="handleLogout()">Logout</button>
+            </header>
+
+            <div id="interest-section" class="section">
+                <h2>Tell Us About Your Interests</h2>
+                <p class="section-description">
+                    Select all the areas that interest you. This helps our AI understand your preferences 
+                    and recommend the best career paths for you.
+                </p>
+                
+                <div class="interests-grid" id="interests-container">
+                    <!-- Interests will be loaded dynamically -->
+                </div>
+                
+                <button class="btn btn-primary btn-large" onclick="submitInterests()" id="submit-interests-btn">
+                    Get Career Recommendations
+                </button>
+            </div>
+
+            <div id="recommendations-section" class="section" style="display: none;">
+                <h2>Your Career Recommendations</h2>
+                <p class="section-description">
+                    Based on your interests, here are the careers we recommend for you:
+                </p>
+                
+                <div id="recommendations-container">
+                    <!-- Recommendations will be loaded here -->
+                </div>
+                
+                <button class="btn btn-secondary" onclick="resetInterests()">Update My Interests</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/app.js"></script>
+</body>
+</html>
